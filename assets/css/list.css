@@ -45,8 +45,8 @@
 }
 
 .tier-content {
-    flex: 1;
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     padding: 8px;
     background: #2a2a2a;
