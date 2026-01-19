@@ -1,0 +1,119 @@
+/* search */
+.btn-search {
+    background: #3498db;
+    color: white;
+}
+
+.btn-search:hover {
+    background: #2980b9;
+}
+
+/* delete */
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+/* done */
+.btn-done {
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-done:hover {
+    background: #27ae60;
+}
+
+.tier {
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.tier-label {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tier-content {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #2a2a2a;
+    min-height: 120px;
+}
+
+/* warna tier */
+.god {
+    background: #ff4d4d;
+}
+
+.top {
+    background: #ff944d;
+}
+
+.high {
+    background: #ffd24d;
+    color: black;
+}
+
+.mid {
+    background: #4dd2ff;
+    color: black;
+}
+
+.low {
+    background: #6c757d;
+}
+
+.shit {
+    background: #343a40;
+}
+
+.havent {
+    background: #9b59b6;
+}
+
+/* anime card */
+.anime-card {
+    position: relative;
+    width: 80px;
+    cursor: grab;
+}
+
+.anime-card img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* delete button */
+.anime-card button {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.anime-card button {
+    display: none;
+}
+
+.delete .anime-card button {
+    display: block;
+}

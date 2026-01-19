@@ -1,0 +1,136 @@
+/* buttons */
+/* search */
+.btn-search {
+    background: #3498db;
+    color: white;
+}
+
+.btn-search:hover {
+    background: #2980b9;
+}
+
+/* add */
+.btn-add {
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-add:hover {
+    background: #27ae60;
+}
+
+.btn-add.added {
+    background: #555;
+    cursor: default;
+}
+
+.btn-add.added:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+/* back */
+.btn-back {
+    background: #555;
+    color: white;
+}
+
+.btn-back:hover {
+    background: #777;
+}
+
+.search-card button {
+    display: block;
+}
+
+.search-card img {
+    width: 100px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.search-card p {
+    font-size: 14px;
+    margin: 8px 0;
+    min-height: 36px;
+}
+
+.search-card {
+    padding: 12px;
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* search input */
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+}
+
+/* anime list result */
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.result-grid .anime-card {
+    background: #2a2a2a;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.result-grid img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.result-grid p {
+    font-size: 13px;
+    margin: 6px 0;
+}
+
+/* list not found */
+.not-found {
+    font-size: 32px;
+    opacity: 0.7;
+    margin-top: 30px;
+}
+
+/* notif added */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #2ecc71;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
