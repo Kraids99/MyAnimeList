@@ -40,31 +40,33 @@ function loadAnime() {
 
 // drag anime
 function enableDrag() {
-    const cards = document.querySelectorAll(".anime-card");
-    const tiers = document.querySelectorAll(".tier-content");
+    document.querySelectorAll(".tier-content").forEach(tier => {
+        new Sortable(tier, {
+            group: "tiers",         
+            animation: 150,
+            ghostClass: "dragging",
+            filter: () => isDeleteMode, 
+            onEnd: saveOrder
+        });
+    });
+}
 
-    cards.forEach(card => {
-        card.addEventListener("dragstart", e => {
-            e.dataTransfer.setData("id", card.dataset.id);
+function saveOrder() {
+    const oldList = JSON.parse(localStorage.getItem("animeList")) || [];
+    const newList = [];
+
+    document.querySelectorAll(".tier-content").forEach(tier => {
+        const tierName = tier.id.replace("tier-", "");
+
+        tier.querySelectorAll(".anime-card").forEach(card => {
+            const anime = oldList.find(a => a.id == card.dataset.id);
+            if (anime) {
+                newList.push({ ...anime, tier: tierName });
+            }
         });
     });
 
-    tiers.forEach(tier => {
-        tier.addEventListener("dragover", e => e.preventDefault());
-
-        tier.addEventListener("drop", e => {
-            const id = e.dataTransfer.getData("id");
-            const newTier = tier.id.replace("tier-", "");
-
-            let animeList = JSON.parse(localStorage.getItem("animeList")) || [];
-            animeList = animeList.map(a =>
-                a.id == id ? { ...a, tier: newTier } : a
-            );
-
-            localStorage.setItem("animeList", JSON.stringify(animeList));
-            loadAnime();
-        });
-    });
+    localStorage.setItem("animeList", JSON.stringify(newList));
 }
 
 // delete anime

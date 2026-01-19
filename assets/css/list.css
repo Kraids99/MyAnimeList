@@ -93,7 +93,9 @@
 
 .anime-card img {
     width: 100%;
-    border-radius: 4px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 /* delete button */
@@ -116,4 +118,8 @@
 
 .delete .anime-card button {
     display: block;
+}
+
+.dragging {
+    opacity: 0.5;
 }
