@@ -2,6 +2,13 @@ const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 const result = document.getElementById("result");
 
+// key enter
+searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        searchBtn.click();
+    }
+});
+
 // search anime
 searchBtn.addEventListener("click", async () => {
     const keyword = searchInput.value.trim();
@@ -19,7 +26,7 @@ searchBtn.addEventListener("click", async () => {
         result.innerHTML = `<p class="not-found">Anime not found 🥲</p>`;
         return;
     }
-    
+
     const animeList = JSON.parse(localStorage.getItem("animeList")) || [];
 
     data.data.forEach(anime => {
