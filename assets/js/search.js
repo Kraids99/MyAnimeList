@@ -17,7 +17,7 @@ searchBtn.addEventListener("click", async () => {
 
     result.innerHTML = "Loading...";
 
-    const res = await fetch(`https://api.jikan.moe/v4/anime?q=${keyword}&limit=20`);
+    const res = await fetch(`https://api.jikan.moe/v4/anime?q=${keyword}&limit=21`);
     const data = await res.json();
 
     result.innerHTML = "";
