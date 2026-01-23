@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="icon" href="assets/img/icon.svg">
 </head>
-
+<div id="toast" class="toast"></div>
 <body>
     <div class="header">
         <h1>My Anime Tier List</h1>
-
         <div class="buttons">
-            <a href="search.html"><button class="btn-search">Search</button></a>
+            <label class="btn-import">Import<input type="file" id="isImport" accept=".json" hidden/></label>
+            <button id="isExport" class="btn-export">Export</button>
+            <a href="search.html"><button id="isSearch" class="btn-search">Search</button></a>
             <button id="isDelete" class="btn-delete">Delete</button>
         </div>
     </div>
@@ -55,7 +56,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 
 </body>
 

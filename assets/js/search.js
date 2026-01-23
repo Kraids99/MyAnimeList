@@ -1,3 +1,4 @@
+import { showToast } from "./toast.js";
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 const result = document.getElementById("result");
@@ -54,17 +55,6 @@ searchBtn.addEventListener("click", async () => {
     });
 });
 
-// pesan Added
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2000);
-}
-
 // add anime ke localStorage
 function addAnime(anime) {
     const animeList = JSON.parse(localStorage.getItem("animeList")) || [];
@@ -74,8 +64,10 @@ function addAnime(anime) {
     animeList.push({ ...anime, tier: "HAVENT_WATCHED" });
 
     localStorage.setItem("animeList", JSON.stringify(animeList));
-    showToast("Added!");
+    showToast("Added!", "success");
 
     // refesh
     searchBtn.click();
 }
+
+window.addAnime = addAnime;
