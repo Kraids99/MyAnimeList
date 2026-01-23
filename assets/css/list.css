@@ -130,14 +130,15 @@ a:has(button:disabled),
 /* delete button */
 .anime-card button {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: 50%;
+    left: 50%;
     background: #ff4d4d;
     border: none;
     color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
     cursor: pointer;
 }
 
@@ -147,6 +148,10 @@ a:has(button:disabled),
 
 .delete .anime-card button {
     display: block;
+}
+
+.delete .anime-card img {
+    filter: brightness(0.5);
 }
 
 .dragging {
@@ -207,19 +212,22 @@ a:has(button:disabled),
 
     .anime-card button {
         position: absolute;
-        top: -2px;
-        right: -4px;
+        top: 50%;
+        left: 50%;
         background: #ff4d4d;
         border: none;
         color: white;
         border-radius: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
         font-size: 10px;
         cursor: pointer;
     }
 }
 
 @media (hover: none) {
-  .delete .anime-card button {
-    opacity: 1;
-  }
+    .delete .anime-card button {
+        opacity: 1;
+    }
 }

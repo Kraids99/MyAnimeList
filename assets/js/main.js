@@ -3,6 +3,7 @@ const isDelete = document.getElementById("isDelete");
 const isExport = document.getElementById("isExport");
 const isImport = document.getElementById("isImport");
 const isSearch = document.getElementById("isSearch");
+let sortables = [];
 let isDeleteMode = false;
 
 // cek delete button
@@ -15,6 +16,10 @@ isDelete.addEventListener("click", () => {
     isExport.disabled = isDeleteMode;
     isSearch.disabled = isDeleteMode;
 
+    sortables.forEach(s =>
+        s.option("disabled", isDeleteMode)
+    );
+    
     if (isDeleteMode) {
         isDelete.textContent = "Done";
         isDelete.classList.remove("btn-delete");
@@ -104,14 +109,17 @@ function loadAnime() {
 
 // drag anime
 function enableDrag() {
+    sortables.forEach(s => s.destroy());
+    sortables = [];
     document.querySelectorAll(".tier-content").forEach(tier => {
-        new Sortable(tier, {
+        const sortable = new Sortable(tier, {
             group: "tiers",
             animation: 150,
             ghostClass: "dragging",
             disabled: isDeleteMode,
             onEnd: saveOrder
         });
+        sortables.push(sortable);
     });
 }
 
@@ -139,7 +147,7 @@ function deleteAnime(id) {
     animeList = animeList.filter(a => a.id !== id);
     localStorage.setItem("animeList", JSON.stringify(animeList));
     loadAnime();
-    showToast("Deleted!","error");
+    showToast("Deleted!", "error");
 }
 
 window.deleteAnime = deleteAnime;
