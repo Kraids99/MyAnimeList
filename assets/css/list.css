@@ -109,6 +109,11 @@ a:has(button:disabled),
     background: #343a40;
 }
 
+.watched {
+    background: greenyellow;
+    color: black;
+}
+
 .havent {
     background: #9b59b6;
 }
